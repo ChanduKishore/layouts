@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>layout</title>
+    <style type="text/css">
+      *{border: none}
+      body {
+        font-family: arial;
+        margin: 0;
+      }
+      .dark{color: white;background: #1B1B1B;}
+      .light{color: black;background: white;}
+      header {
+        background: black;
+        height: 50px;
+        width: 100%;
+      }
+      main {
+        width: 98%;
+        height: calc(100vh - 90px);
+        margin: 20px auto;
+        display: grid;
+         grid-template-areas: "aside section";
+        grid-template-columns: 400px 5fr;
+       
+      }
+
+      aside {
+        grid-area: aside;
+        height: 100%;overflow: auto;
+      }
+
+      aside .vidRef{display: grid; 
+        grid-template-columns: 2fr 3fr;
+        grid-gap: 10px;
+        margin-bottom:10px}
+
+      aside .thumbnail{width: 180px;}
+
+      aside p {
+      margin: 0;margin-left: 10px;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+        font-size: 16px;
+      }
+      section{grid-area: section;}
+      section div {
+        width: 90%;
+        height: calc((98vw - 400px - 10px )*0.50);
+        font-size: 1.2em;
+        margin: 0 auto;
+      }
+      section p {padding-left: 10px;}
+       iframe{width: 100%;
+        height: 100%}
+
+      .active {
+        background: deepskyblue;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+      }
+
+      .modName {
+        margin: 0;
+        padding: 10px;
+        background: black;
+        color: white;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+      }
+      
+      .thumbnail{position: relative;}
+
+      .duration{position: absolute;right: 10px;bottom: 10px;font-size: 12px;background: black;border-radius: 5px;padding: 3px 7px;}
+
+        
+      @media (max-width: 65em) {
+        header{position: absolute;
+          top: -120px}
+
+        main {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-gap: 0px;
+          grid-template-areas: "section" "aside";
+          height: 100vh;
+          margin:0 auto;
+          width: 100%%;
+        }
+        aside {
+          grid-area: aside;
+          padding-left: 5px;
+          overflow: visible;
+          margin-top: 25px;
+
+        }
+        aside .vidRef{display:grid;grid-template-columns: 1fr 5fr;}
+        
+        aside p{margin: 0}
+        section {
+         ;
+          grid-area: section;
+          height:calc(56.25vw + 50px);
+          margin-bottom: 20px;
+        }
+
+        section div {
+          width: 100%;
+          height:calc(100% - 50px) ;
+        }
+
+
+        iframe{width:100%}
+
+        .title {
+          margin-bottom: 10px;
+        }
+
+      }
+
+
+      @media(max-width: 40em){
+        aside{overflow: auto;}
+      }
+      
+      img{max-width: 100%;}
+
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <header></header>
+    <main>
+      
+      
+      <section>
+      </section>
+      <aside>
+      </aside>
+    </main>
+  </body>
+  
+  <script type="text/javascript">
+// main video pallet 
+    tSeries =[
+    // adding video details into this array can make videos into web page
+
+  /*array 1 */ [
+          { thumbnailUrl:"https://i.ytimg.com/vi/t6n-BVCelnU/maxresdefault.jpg",
+            url:"https://www.youtube.com/embed/t6n-BVCelnU",
+            name:"Zaalima Coca Cola Song | Nora Fatehi | Tanishk Bagchi | Shreya Ghoshal | Vayu",
+            duration:'2:32'},
+
+            { thumbnailUrl:"https://i.ytimg.com/vi/BBAyRBTfsOU/maxresdefault.jpg",
+              url:"https://www.youtube.com/embed/BBAyRBTfsOU",
+              name:"Vaaste Song: Dhvani Bhanushali, Tanishk Bagchi | Nikhil D | Bhushan Kumar | Radhika Rao, Vinay Sapru",
+              duration:"4:27"},
+              ],//array 1 end
+
+/* array 2*/[
+              {thumbnailUrl:"https://i.ytimg.com/vi/h9Am4CYaLng/maxresdefault.jpg",
+              url:"https://www.youtube.com/embed/h9Am4CYaLng",
+              name:"#SarangaDariya | Love story Songs | Naga Chaitanya | Sai Pallavi | Sekhar Kammula | Pawan Ch",
+              duration:"3:50"},
+              { thumbnailUrl:"https://i.ytimg.com/vi/65P3H1idDQE/maxresdefault.jpg",
+              url:"https://www.youtube.com/embed/65P3H1idDQE",
+              name:"#Acharya - LaaheLaahe Lyrical | Megastar Chiranjeevi, Ram Charan​, Kajal, PoojaHegde | KoratalaSiva",
+              duration:"4:10"},
+          ],//array 2 end
+//array 1 and array 2 represent module 1 module 2 adding another array in tSeries can make a new module in in your web page
+
+//add array inside tSeries[],  you name that module in modName array
+    ];
+
+    const body = document.querySelector('body');
+    const aside = document.querySelector("aside");
+    const section = document.querySelector("section");
+    const darkTheme = true;
+    if (darkTheme){
+      body.setAttribute('class','dark');
+    }else{body.setAttribute('class','light')}
+
+// modname array stores your module names 
+//adding a string into this array will add module name in in your web page if only new module array added 
+//inside the tSeries array
+    let modName=['Bollywood latest hits', "Telugu new Release"]
+
+    //main build this function loads when page completed loading and sets the aside bar and main video section
+    window.onload = function () {
+      
+          for(let j=0;j<tSeries.length;j++){
+            const moduleName = document.createElement('p')
+            moduleName.setAttribute('class','modName')
+            moduleName.textContent =modName[j]
+            aside.appendChild(moduleName)
+
+            for(let i=0;i < tSeries[j].length;i++){
+            const videoReference =document.createElement('div')
+            videoReference.setAttribute('class','vidRef')
+            const tmbnlWrapper = document.createElement('div');
+            tmbnlWrapper.setAttribute('class','thumbnail')
+            const thumbnail = document.createElement('img');
+            const videoName =document.createElement('p');
+            const duration = document.createElement('p');
+            duration.setAttribute('class','duration')
+            videoName.textContent=tSeries[j][i].name
+            thumbnail.src = tSeries[j][i].thumbnailUrl;
+            duration.textContent=tSeries[j][i].duration;
+
+            tmbnlWrapper.appendChild(thumbnail);
+            tmbnlWrapper.appendChild(duration);
+            videoReference.appendChild(tmbnlWrapper)
+            videoReference.appendChild(videoName);
+            aside.appendChild(videoReference);
+
+            thumbnail.onclick = function(){displayData(tSeries[j][i])}
+          }
+    }
+  }
+
+  //display fucntion
+    function displayData(vid) {
+      while (section.firstChild) {
+        section.removeChild(section.firstChild);
+      }
+      const videoWrapper = document.createElement("div");
+      const video = document.createElement("iframe");
+      const videoTitle = document.createElement('p');
+      videoTitle.textContent = vid.name 
+      video.src = vid.url;
+      videoWrapper.appendChild(video);
+      videoWrapper.appendChild(videoTitle)
+      section.appendChild(videoWrapper);
+      
+    }
+    
+  //initial video changing tSeries index values can display new video for initial page load
+  displayData(tSeries[0][0])
+  </script>
+</html>
