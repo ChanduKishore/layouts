@@ -1,0 +1,34 @@
+ 
+{
+            "module1":[
+
+              { "thumbnailUrl":"https://i.ytimg.com/vi/t6n-BVCelnU/maxresdefault.jpg",
+                      "url":"https://www.youtube.com/embed/t6n-BVCelnU",
+                      "name":"Zaalima Coca Cola Song | Nora Fatehi | Tanishk Bagchi | Shreya Ghoshal | Vayu",
+                      "duration":"2:32"},
+
+            { "thumbnailUrl":"https://i.ytimg.com/vi/BBAyRBTfsOU/maxresdefault.jpg",
+              "url":"https://www.youtube.com/embed/BBAyRBTfsOU",
+              "name":"Vaaste Song: Dhvani Bhanushali, Tanishk Bagchi | Nikhil D | Bhushan Kumar | Radhika Rao, Vinay Sapru",
+              "duration":"4:27"}
+            ],
+
+
+
+              "module2":[
+
+                {"thumbnailUrl":"https://i.ytimg.com/vi/h9Am4CYaLng/maxresdefault.jpg",
+              "url":"https://www.youtube.com/embed/h9Am4CYaLng",
+              "name":"#SarangaDariya | Love story Songs | Naga Chaitanya | Sai Pallavi | Sekhar Kammula | Pawan Ch",
+              "duration":"3:50"},
+
+              { "thumbnailUrl":"https://i.ytimg.com/vi/65P3H1idDQE/maxresdefault.jpg",
+              "url":"https://www.youtube.com/embed/65P3H1idDQE",
+              "name":"#Acharya - LaaheLaahe Lyrical | Megastar Chiranjeevi, Ram Charan​, Kajal, PoojaHegde | KoratalaSiva",
+              "duration":"4:10"}
+              
+            ]
+
+}
+
+
