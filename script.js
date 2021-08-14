@@ -46,25 +46,19 @@ function initilize() {
             }
             
             for(let i=0;i < module.length;i++){
-            const videoReference =document.createElement('div')
-            videoReference.setAttribute('class','vidRef')
-            const tmbnlWrapper = document.createElement('div');
-            tmbnlWrapper.setAttribute('class','thumbnail')
-            const thumbnail = document.createElement('img');
-            const videoName =document.createElement('p');
-            const duration = document.createElement('p');
-            duration.setAttribute('class','duration')
+        
+            const videoName =document.createElement('button');
             videoName.textContent=module[i].name
-            thumbnail.src = module[i].thumbnailUrl;
-            duration.textContent=module[i].duration;
+            aside.appendChild(videoName);
 
-            tmbnlWrapper.appendChild(thumbnail);
-            tmbnlWrapper.appendChild(duration);
-            videoReference.appendChild(tmbnlWrapper)
-            videoReference.appendChild(videoName);
-            aside.appendChild(videoReference);
-
-            thumbnail.onclick = function(){displayData(module[i])}
+            videoName.onclick = function(){
+              displayData(module[i]);
+              let vidName = document.querySelectorAll('button');
+              for(let j=0;j<vidName.length;j++){
+                  vidName[j].setAttribute('class','inactive')
+              }
+              videoName.setAttribute('class','active');
+              }
           }
     }
   
