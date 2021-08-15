@@ -104,6 +104,15 @@
           height:calc(100% - 60px) ;
         }
 
+
+         .aside_content::before{
+        width: 20px;
+        height: 20px;
+        content: '▼';position: absolute;
+        top: 7px;left: 360px;
+         border: 2px solid white;
+        text-align: center;border-radius: 50%;font-size: 1.1em;}
+
         iframe{width:100%}
 
       }
@@ -117,7 +126,9 @@
         .aside_content{overflow: auto;
           height:39vh;}
           aside button{width: calc(100% - 20px);}
-          .aside_content::before{top: 12px;right: 50px;font-size: 1.2em;}
+          .aside_content::before{width: 22px;
+        height: 22px;
+            top: 12px;left:calc(100% - 75px);font-size: 1.2em;}
 
         }
         
