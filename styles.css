@@ -22,9 +22,11 @@
 
       aside {
         grid-area: aside;
+        position: relative;
         
       }
-      .aside_content{height: calc(100vh - 130px);overflow: auto;}
+      .aside_content{height: calc(100vh - 130px);
+        overflow: auto;}
 
       aside button, select {
         color: white;
@@ -38,7 +40,11 @@
         border: 1px solid;
         border-radius: 10px;
       }
-      aside button:hover,aside .active{background: white;color: black}
+      aside button:hover,aside .active{
+        background: ghostwhite;
+        color: black;
+        font-weight: bold;
+        letter-spacing: 0.2px;}
 
       section{grid-area: section;}
       section div {
@@ -60,6 +66,15 @@
           }
         
         
+        .aside_content::before{
+        width: 20px;
+        height: 20px;
+        content: '▼';position: absolute;
+        top: 7px;right: 25px;
+         border: 2px solid white;
+        text-align: center;border-radius: 50%;font-size: 1.1em;}
+
+
       @media (max-width: 65em) {
         header{position: absolute;
           top: -120px}
@@ -75,7 +90,7 @@
         aside {
           grid-area: aside;
           overflow: visible;
-
+  
         }
         
         section {
@@ -86,18 +101,25 @@
 
         section div {
           width: 100%;
-          height:calc(100% - 70px) ;
+          height:calc(100% - 60px) ;
         }
 
         iframe{width:100%}
 
       }
 
+      
+
 
       @media(max-width: 40em){
-  
+        
         select{width: calc(100%); margin-left: 0;border-radius: 0;padding: 15px;}
-        .aside_content{overflow: auto;height:39vh}
+        .aside_content{overflow: auto;
+          height:39vh;}
+          aside button{width: calc(100% - 20px);}
+          .aside_content::before{top: 12px;right: 50px;font-size: 1.2em;}
+
+        }
         
       img{max-width: 100%;}
 

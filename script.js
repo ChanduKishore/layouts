@@ -2,9 +2,14 @@ const body = document.querySelector('body');
     const aside = document.querySelector(".aside_content");
     const section = document.querySelector("section");
     const selection = document.querySelector('select');
+    const selectToggle = document.createElement('div');
+    selectToggle.setAttribute('class','toggle_down');
     const videoWrapper = document.querySelector("div");
     const video = document.querySelector("iframe");
     const videoTitle = document.querySelector('p');
+
+    aside.appendChild(selectToggle)
+
     const darkTheme = true;
     if (darkTheme){
       body.setAttribute('class','dark');
@@ -46,7 +51,6 @@ function initilize() {
             }
             
             for(let i=0;i < module.length;i++){
-        
             const videoName =document.createElement('button');
             videoName.textContent=module[i].name
             aside.appendChild(videoName);
